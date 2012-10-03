@@ -9,6 +9,22 @@ if [ -z "$message" ]; then
   exit
 fi
 
+#compile sources
+if [ -d bin ]
+then
+  rm -rf bin/*
+else
+  mkdir bin
+fi
+
+javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java 2>build_errors.txt
+
+if [ -s build_errors.txt ]
+then
+  echo "Errors compiling source files. See build_errors.txt for more details."
+  exit
+fi
+
 #compile jar file
 rm Util.jar
 rm bin/com/danielvizzini/util/*Test.class
