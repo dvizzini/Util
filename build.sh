@@ -1,5 +1,4 @@
 #!/bin/bash
-export DEBIAN_FRONTEND=noninteractive
 
 # get commit message
 message="${1}"
@@ -9,7 +8,7 @@ if [ -z "$message" ]; then
   exit
 fi
 
-#compile sources
+# compile sources
 if [ -d bin ]
 then
   rm -rf bin/*
@@ -25,12 +24,11 @@ then
   exit
 fi
 
-#compile jar file
+# compile jar file
 rm Util.jar
-rm bin/com/danielvizzini/util/*Test.class
 jar cf Util.jar -C bin .
 
-#generate the javadocs
+# generate the javadocs
 rm -rf doc/*
 javadoc -quiet -sourcepath src/com/danielvizzini/util/* -d doc/ 2> javadoc_errors.txt
 
@@ -40,7 +38,7 @@ then
   exit
 fi
 
-#do familiar git routines
+# do familiar git routines
 git add .
 git commit -am "$message"
 git push

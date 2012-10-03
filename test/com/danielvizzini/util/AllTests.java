@@ -7,6 +7,6 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ DateUtilTest.class, FileUtilTest.class, InstantiationUtilTest.class, IterableUtilTest.class,
 		KnapsackTest.class, MiscUtilTest.class })
-public class AllTest {
+public class AllTests {
 
 }
