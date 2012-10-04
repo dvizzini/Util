@@ -41,11 +41,11 @@ jar cf Util.jar -C bin .
 
 # generate the javadocs
 rm -rf doc/*
-javadoc -d doc/ -quiet src/com/danielvizzini/util/* 2> javadoc_errors.txt
+javadoc -d doc/ -quiet src/com/danielvizzini/util/* 2> javadoc_warnings.txt
 
-if [ -s javadoc_errors.txt ]
+if [ -s javadoc_warnings.txt ]
 then
-  echo "Exiting becuase javadocs have warnings. See javadoc_errors.txt for more details."
+  echo "Exiting becuase javadocs have warnings. See javadoc_warnings.txt for more details."
   exit
 fi
 

@@ -6,10 +6,10 @@
 .classpath
 .settings/*
 
-# compile.sh-specific
+# script-specific
 build_errors.txt
 test_results.txt
-javadoc_errors.txt
+javadoc_warnings.txt
 
 # Numerous always-ignore extensions
 *.diff
