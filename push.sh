@@ -8,7 +8,7 @@ if [ -z "$message" ]; then
   exit
 fi
 
-# compile sources
+# compile sources and tests
 if [ -d bin ]
 then
   rm -rf bin/*
@@ -16,7 +16,8 @@ else
   mkdir bin
 fi
 
-javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java 2>build_errors.txt
+javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java 2> build_errors.txt
+javac -d bin -sourcepath test -classpath bin:lib/junit-4.10.jar test/com/danielvizzini/util/*.java 2>> build_errors.txt
 
 if [ -s build_errors.txt ]
 then
@@ -24,8 +25,18 @@ then
   exit
 fi
 
+#run tests and check to see if they pass
+java -cp bin:lib/junit-4.10.jar org.junit.runner.JUnitCore com.danielvizzini.util.AllTests > test_results.txt
+
+if [ ! -s `sed -n '2p' test_results.txt | grep 'E'` ]
+then
+  echo "Errors detected. See test_results.txt for details. Stopping script."
+  exit
+fi
+
 # compile jar file
-rm Util.jar
+rm -rf Util.jar bin/*
+javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java
 jar cf Util.jar -C bin .
 
 # generate the javadocs
