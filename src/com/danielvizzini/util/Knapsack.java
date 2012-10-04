@@ -3,10 +3,10 @@ package com.danielvizzini.util;
 import java.util.ArrayList;
 
 /**
- * Extension of Stack that implements Knapsack algorithm on construction and allows total "weight" to be easily accessible.<br/>
+ * Implements Knapsack algorithm on construction and allows total "weight" to be easily accessible.<br/>
  * Objects contained within Knapsack must implement the KnapsackItem interface.
+ * @param <T> A Type that implements the KnapsackItem interface
  */
-@SuppressWarnings("javadoc")
 public class Knapsack<T extends KnapsackItem> extends ArrayList<T> {
 	
 	private static final long serialVersionUID = 1L;
@@ -47,7 +47,6 @@ public class Knapsack<T extends KnapsackItem> extends ArrayList<T> {
 	/**
 	 * Packs knapsack where weights and profits are the same<br/>
 	 * items and weights arrays are left in tack.
-	 * @param <T>
 	 * @param capacity capacity of knapsack (e.g. 150 for a 150 cubic-yard truck)
 	 * @param items list of items packed into the knapsack (e.g. a List of Furniture objects)
 	 * @param weights the weights, in the same units as capacity, of these objects.<br/>

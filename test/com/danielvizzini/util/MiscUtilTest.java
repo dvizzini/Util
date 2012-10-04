@@ -13,6 +13,7 @@ import java.util.LinkedList;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class MiscUtilTest {
 
 	private abstract class KeyValuePair {
