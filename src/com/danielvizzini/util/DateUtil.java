@@ -13,7 +13,7 @@ import java.util.TimeZone;
 public class DateUtil {
 	
 	//hide default constructor
-	private DateUtil() {}
+//	private DateUtil() {}
 	
 	private static boolean[] everyday = {true, true, true, true, true, true, true};
 	private static boolean[] workweek = {false, true, true, true, true, true, false};
@@ -62,6 +62,7 @@ public class DateUtil {
 	 * Calculates the number of days between two dates, inclusively. If the dateAtOneEnd and dateAtOtherEnd are identical, the function will return 1 if this date is eligible and 0 if it is not.
 	 * <p>
 	 * Iterates over days, so use subtraction if you are concerned about performance for very long intervals
+	 * @param dateAtOneEnd date at one end of interval
 	 * @param dateAtOtherEnd date at other end of interval, must be in same time zone as dateAtOneEnd
 	 * @return the number of eligible days between dateAtOneEnd and dateAtOtherEnd, inclusively. Note that is dateAtOneEnd equals dateAtOtherEnd, 1 will be returned if the date is eligible and 0 if it is not.
 	 */

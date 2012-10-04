@@ -16,7 +16,6 @@ public class FileUtil {
 
 	/**
 	 * Reads file and returns contents as string
-	 * @param file java.io.File object of file to read
 	 * @return file contents as String, or "" if file is blank
 	 * @throws FileNotFoundException
 	 */

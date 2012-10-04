@@ -41,7 +41,7 @@ jar cf Util.jar -C bin .
 
 # generate the javadocs
 rm -rf doc/*
-javadoc -sourcepath src/com/danielvizzini/util/* -d doc/ 2> javadoc_errors.txt
+javadoc -quiet -sourcepath src/com/danielvizzini/util/* -d doc/ 2> javadoc_errors.txt
 
 if [ -s javadoc_errors.txt ]
 then
