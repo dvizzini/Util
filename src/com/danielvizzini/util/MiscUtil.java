@@ -16,12 +16,15 @@ import java.util.Set;
  */
 public class MiscUtil {
 
+	//hide default constructor
+	private MiscUtil() {}
+	
     /**
      * Given a string, returns the MD5 hash
      *
      * @param s String whose MD5 hash value is required
      * @return An MD5 hash string
-     * @throws java.security.NoSuchAlgorithmException
+     * @throws java.security.NoSuchAlgorithmException if the MD5 hash algorithm is not found
      */
     public static String getMd5(String s) throws NoSuchAlgorithmException {
 
@@ -84,10 +87,10 @@ public class MiscUtil {
     
     /**
      * Returns the constructor of a class given its parameters. Used instead of getConstructor because of that will not handle parameters with generics.
-     * @param klass class for which method returns constructor
+     * @param klass the class for the constructor sought
      * @param parameterTypes parameter types of constructor returned
      * @return constructor that constructs and instance of klass using the parameters specified
-     * @throws NoSuchMethodException
+     * @throws NoSuchMethodException if the constructor specified does not exist
      */
 	public static <T> Constructor<T> findConstructor(Class<T> klass, Class<?>... parameterTypes) throws NoSuchMethodException {
 		@SuppressWarnings("unchecked")
@@ -204,8 +207,8 @@ public class MiscUtil {
 	}
 	
 	/**
-	 * @param integer 
-	 * @param modulus 
+	 * @param integer the integer that one is applying the modulus operator to
+	 * @param modulus the base of the modulus operator
 	 * @return integer % modulus, set to be positive<br/> 
 	 * Examples:<br/>
 	 * modPositive(17, 5) == 2//true<br/>

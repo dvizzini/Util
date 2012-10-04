@@ -11,6 +11,7 @@ import java.util.ArrayDeque;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class FileUtilTest {
 
 	@Test

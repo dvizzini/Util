@@ -10,6 +10,7 @@ import java.util.LinkedList;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class IterableUtilTest {
 
 	private ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList("a","b","c","d"));

@@ -14,10 +14,14 @@ import java.util.ArrayDeque;
  */
 public class FileUtil {
 
+	//hide default constructor
+	private FileUtil() {}
+	
 	/**
 	 * Reads file and returns contents as string
+	 * @param file java.io.File object of file to read
 	 * @return file contents as String, or "" if file is blank
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException thrown if file specified does not exist
 	 */
 	public static String readFile(File file) throws FileNotFoundException {
 		
@@ -52,7 +56,7 @@ public class FileUtil {
 	 * Reads file and returns contents as ArrayDeque<String>, where each element is a line of the file
 	 * @param file java.io.File object of file to read
 	 * @return File contents as String, or "" if file is blank
-	 * @throws FileNotFoundException
+	 * @throws FileNotFoundException thrown if file specified does not exist
 	 */
 	public static ArrayDeque<String> readFileLineByLine(File file) throws FileNotFoundException {
 		

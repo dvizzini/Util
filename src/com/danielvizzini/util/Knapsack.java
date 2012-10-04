@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Extension of Stack that implements Knapsack algorithm on construction and allows total "weight" to be easily accessible.<br/>
  * Objects contained within Knapsack must implement the KnapsackItem interface.
  */
+@SuppressWarnings("javadoc")
 public class Knapsack<T extends KnapsackItem> extends ArrayList<T> {
 	
 	private static final long serialVersionUID = 1L;

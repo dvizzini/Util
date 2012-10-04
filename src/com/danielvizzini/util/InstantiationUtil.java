@@ -10,6 +10,9 @@ import java.util.HashSet;
  */
 public class InstantiationUtil {
 	
+	//hide default constructor
+	private InstantiationUtil() {}
+	
 	/**
 	 * A constructor of ArrayDeque
 	 * @param elements the elements in the array double-ended queue

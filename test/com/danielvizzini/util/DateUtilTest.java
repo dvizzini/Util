@@ -11,6 +11,7 @@ import java.util.TimeZone;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class DateUtilTest {
 	
 	GregorianCalendar now = new GregorianCalendar();

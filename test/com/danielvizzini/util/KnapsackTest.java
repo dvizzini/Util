@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class KnapsackTest {
 
 	private static Furniture giganticCouch = new Furniture(8);

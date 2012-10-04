@@ -10,6 +10,7 @@ import java.util.HashSet;
 
 import org.junit.Test;
 
+@SuppressWarnings("javadoc")
 public class InstantiationUtilTest {
 	
 	@Test

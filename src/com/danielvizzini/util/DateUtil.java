@@ -13,7 +13,7 @@ import java.util.TimeZone;
 public class DateUtil {
 	
 	//hide default constructor
-//	private DateUtil() {}
+	private DateUtil() {}
 	
 	private static boolean[] everyday = {true, true, true, true, true, true, true};
 	private static boolean[] workweek = {false, true, true, true, true, true, false};
@@ -27,6 +27,7 @@ public class DateUtil {
 	 * @param dateAtOtherEnd date at other end of interval, must be in same time zone as dateAtOneEnd
 	 * @param dayEligibility boolean array of length 7, with each day corresponding to a day of the week, where true indicates the day is eligible. Index 0 is Sunday.
 	 * @return the number of eligible days between dateAtOneEnd and dateAtOtherEnd, inclusively. Note that is dateAtOneEnd equals dateAtOtherEnd, 1 will be returned if the date is eligible and 0 if it is not.
+	 * @throws IllegalArgumentException if dates are in multiple time zones or dayEligibility boolean not of length seven or entirely false
 	 */
 	public static int getEligibleDaysBetweenTwoDates(GregorianCalendar dateAtOneEnd, GregorianCalendar dateAtOtherEnd, boolean[] dayEligibility) throws IllegalArgumentException {
 		
@@ -64,6 +65,7 @@ public class DateUtil {
 	 * Iterates over days, so use subtraction if you are concerned about performance for very long intervals
 	 * @param dateAtOneEnd date at one end of interval
 	 * @param dateAtOtherEnd date at other end of interval, must be in same time zone as dateAtOneEnd
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days between dateAtOneEnd and dateAtOtherEnd, inclusively. Note that is dateAtOneEnd equals dateAtOtherEnd, 1 will be returned if the date is eligible and 0 if it is not.
 	 */
 	public static int getDaysBetweenTwoDates(GregorianCalendar dateAtOneEnd, GregorianCalendar dateAtOtherEnd) throws IllegalArgumentException {
@@ -76,6 +78,7 @@ public class DateUtil {
 	 * Iterates over days, so use subtraction if you are concerned about performance for very long intervals
 	 * @param dateAtOneEnd date at one end of interval
 	 * @param dateAtOtherEnd date at other end of interval, must be in same time zone as dateAtOneEnd
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days between dateAtOneEnd and dateAtOtherEnd, inclusively. Note that is dateAtOneEnd equals dateAtOtherEnd, 1 will be returned if the date is eligible and 0 if it is not.
 	 */
 	public static int getWeekdaysBetweenTwoDates(GregorianCalendar dateAtOneEnd, GregorianCalendar dateAtOtherEnd) throws IllegalArgumentException {
@@ -88,6 +91,7 @@ public class DateUtil {
 	 * Iterates over days, so use subtraction if you are concerned about performance for very long intervals
 	 * @param dateAtOneEnd date at one end of interval
 	 * @param dateAtOtherEnd date at other end of interval, must be in same time zone as dateAtOneEnd
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days between dateAtOneEnd and dateAtOtherEnd, inclusively. Note that is dateAtOneEnd equals dateAtOtherEnd, 1 will be returned if the date is eligible and 0 if it is not.
 	 */
 	public static int getWeekendDaysBetweenTwoDates(GregorianCalendar dateAtOneEnd, GregorianCalendar dateAtOtherEnd) throws IllegalArgumentException {
@@ -100,7 +104,7 @@ public class DateUtil {
 	 * Note that all dates must be in the same time zone, or an exception will be thrown.
 	 * @param dates array of days to determine if eligible
 	 * @param dayEligibility boolean array of length 7, with each day corresponding to a day of the week, where true indicates the day is eligible. Index 0 is Sunday.
-	 * @throws IllegalArgumentException if dates are in multiple time zones or 
+	 * @throws IllegalArgumentException if dates are in multiple time zones or dayEligibility boolean not of length seven or entirely false
 	 * @return the number of eligible days in an array of GregorianCalendar objects
 	 */
 	public static int getEligibleDaysInArray(Iterable<GregorianCalendar> dates, boolean[] dayEligibility) throws IllegalArgumentException {
@@ -141,10 +145,11 @@ public class DateUtil {
 	/**
 	 * Calculates the number of days in an array of GregorianCalendar objects. Note that duplicates will only be counted once, as will two objects in the same date.
 	 * <p>
-	 * This will be used instead of just finding the array lenght to eliminate counint elements in the same day more than once.
+	 * This will be used instead of just finding the array length to eliminate counting elements in the same day more than once.
 	 * <p>
 	 * Note that all dates must be in the same time zone, or an exception will be thrown.
 	 * @param dates array of days to determine if eligible
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days in an array of GregorianCalendar objects
 	 */
 	public static int getDaysInArray(Iterable<GregorianCalendar> dates) throws IllegalArgumentException {
@@ -156,6 +161,7 @@ public class DateUtil {
 	 * <p>
 	 * Note that all dates must be in the same time zone, or an exception will be thrown.
 	 * @param dates array of days to determine if eligible
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days in an array of GregorianCalendar objects
 	 */
 	public static int getWeekdaysInArray(Iterable<GregorianCalendar> dates) throws IllegalArgumentException {
@@ -167,6 +173,7 @@ public class DateUtil {
 	 * <p>
 	 * Note that all dates must be in the same time zone, or an exception will be thrown.
 	 * @param dates array of days to determine if eligible
+	 * @throws IllegalArgumentException if dates are in multiple time zones
 	 * @return the number of eligible days in an array of GregorianCalendar objects
 	 */
 	public static int getWeekendDaysInArray(Iterable<GregorianCalendar> dates) throws IllegalArgumentException {
@@ -209,9 +216,9 @@ public class DateUtil {
     }
 	
 	/**
-	 * Take date string in "yyyy/mm/dd" format and see if it is valid
-	 * @param yyyySlashmmSlashdd date in "yyyy/mm/dd" format
-	 * @return true if the date is valid, false otherwise
+	 * Take minutes since midnight and return string formatted #H:MM{AM,PM}
+	 * @param minutesSinceMidnight number of minutes since midnight
+	 * @return string formatted #H:MM{AM,PM}
 	 */
 	public static String minutesSinceMidnightToString(int minutesSinceMidnight) {
 		//get minutes in range
