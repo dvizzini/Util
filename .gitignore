@@ -7,6 +7,8 @@
 .settings/*
 
 # compile.sh-specific
+build_errors.txt
+test_results.txt
 javadoc_errors.txt
 
 # Numerous always-ignore extensions
