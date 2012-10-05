@@ -8,7 +8,7 @@ if [ -z "$message" ]; then
   exit
 fi
 
-# compile sources and tests
+echo "compiling sources and tests..."
 if [ -d bin ]
 then
   rm -rf bin/*
@@ -25,7 +25,7 @@ then
   exit
 fi
 
-#run tests and check to see if they pass
+echo "running tests and checking to see if they pass..."
 java -cp bin:lib/junit-4.10.jar org.junit.runner.JUnitCore com.danielvizzini.util.AllTests > test_results.txt
 
 if [ ! -s `sed -n '2p' test_results.txt | grep 'E'` ]
@@ -34,12 +34,12 @@ then
   exit
 fi
 
-# compile jar file
+echo "compiling jar file..."
 rm -rf Util.jar bin/*
 javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java
 jar cf Util.jar -C bin .
 
-# generate the javadocs
+echo "generate the javadocs..."
 rm -rf doc/*
 javadoc -d doc/ -quiet src/com/danielvizzini/util/* 2> javadoc_warnings.txt
 
