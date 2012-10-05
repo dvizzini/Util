@@ -267,7 +267,7 @@ public class MiscUtil {
 	
 	/**
 	 * @param stringList list of strings
-	 * @return longest string. If string is empty, "" is returned. If two strings are equally long, the first is returned.
+	 * @return longest string. If iterable is empty, "" is returned. If two strings are equally long, the first is returned.
 	 */
 	public static String getLongestString(Iterable<String> stringList) {
 		String forReturn = "";
@@ -279,4 +279,13 @@ public class MiscUtil {
 		return forReturn;
 	}
 
+	/**
+	 * Capitalizes first letter of String
+	 * @param string string to be capitalized
+	 * @return Capitalized String. If string is "", "" is returned.
+	 */
+	public static String captialize(String string) {
+		if (string.length() <= 1) return string.toUpperCase();
+		return string.substring(0,1).toUpperCase() + string.substring(1);
+	}
 }

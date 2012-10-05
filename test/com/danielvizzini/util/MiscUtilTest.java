@@ -333,13 +333,18 @@ public class MiscUtilTest {
 		assertEquals(MiscUtil.trimTrailingZeros(123.0),"123");
 		assertEquals(MiscUtil.trimTrailingZeros(1230.0),"1230");
 	}
-	
-	
 
 	@Test
 	public void testGetLongestString() {
 		assertEquals(MiscUtil.getLongestString(new ArrayList<String>()),"");
 		assertEquals(MiscUtil.getLongestString(InstantiationUtil.newArrayList("hello", "heeeellllooooo")),"heeeellllooooo");
 		assertEquals(MiscUtil.getLongestString(InstantiationUtil.newArrayList("heeeellllooooo", "heeeelllloooop")),"heeeellllooooo");
+	}
+	
+	@Test
+	public void testCapitalize() {
+		assertEquals(MiscUtil.captialize(""),"");
+		assertEquals(MiscUtil.captialize("a"),"A");
+		assertEquals(MiscUtil.captialize("aaa"),"Aaa");
 	}
 }
