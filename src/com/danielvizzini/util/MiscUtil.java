@@ -284,7 +284,7 @@ public class MiscUtil {
 	 * @param string string to be capitalized
 	 * @return Capitalized String. If string is "", "" is returned.
 	 */
-	public static String captialize(String string) {
+	public static String capitalize(String string) {
 		if (string.length() <= 1) return string.toUpperCase();
 		return string.substring(0,1).toUpperCase() + string.substring(1);
 	}

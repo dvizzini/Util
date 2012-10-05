@@ -343,8 +343,8 @@ public class MiscUtilTest {
 	
 	@Test
 	public void testCapitalize() {
-		assertEquals(MiscUtil.captialize(""),"");
-		assertEquals(MiscUtil.captialize("a"),"A");
-		assertEquals(MiscUtil.captialize("aaa"),"Aaa");
+		assertEquals(MiscUtil.capitalize(""),"");
+		assertEquals(MiscUtil.capitalize("a"),"A");
+		assertEquals(MiscUtil.capitalize("aaa"),"Aaa");
 	}
 }
