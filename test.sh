@@ -14,6 +14,7 @@ javac -d bin -sourcepath test -classpath bin:lib/junit-4.10.jar test/com/danielv
 if [ -s build_errors.txt ]
 then
   echo "Errors compiling source files. See build_errors.txt for more details. Exiting with status 1"
+  cat build_errors.txt
   exit 1
 fi
 
