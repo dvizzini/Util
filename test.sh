@@ -8,25 +8,13 @@ else
   mkdir bin
 fi
 
-javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java 2> build_errors.txt
+javac -d bin -sourcepath src src/com/danielvizzini/util/*.java 2> build_errors.txt
 javac -d bin -sourcepath test -classpath bin:lib/junit-4.10.jar test/com/danielvizzini/util/*.java 2>> build_errors.txt
 
 if [ -s build_errors.txt ]
 then
-  echo "Errors compiling source files. See build_errors.txt for more details. Exiting with status 1"
+  echo "Errors compiling source files. Printing build_errors.txt for more details. Exiting with status 1"
   cat build_errors.txt
-  if [ -d bin ]
-  then
-    echo "bin file exists"
-    if [ -s bin/com/danielvizzini/DateUtil.class ]
-    then
-      echo "DateUtil.class exists"
-    else
-      echo "DateUtil.class dne"
-    fi
-  else
-    echo "bin file dne"
-  fi
   exit 1
 fi
 
