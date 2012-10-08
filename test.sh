@@ -23,7 +23,8 @@ java -cp bin:lib/junit-4.10.jar org.junit.runner.JUnitCore com.danielvizzini.uti
 
 if [ `echo $?` != 0 ]
 then
-  echo "Errors detected. See test_results.txt for details. Exiting with status 1."
+  echo "Errors detected. Printing test_results.txt for details. Exiting with status 1."
+  cat test_results.txt
   exit 1
 fi
 echo "Test passed. Exiting with status 0."
