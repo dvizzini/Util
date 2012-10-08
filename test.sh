@@ -15,7 +15,7 @@ if [ -s build_errors.txt ]
 then
   echo "Errors compiling source files. See build_errors.txt for more details. Exiting with status 1"
   cat build_errors.txt
-  if [ -f bin ]
+  if [ -d bin ]
   then
     echo "bin file exists"
     if [ -s bin/com/danielvizzini/DateUtil.class]
