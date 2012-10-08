@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "compiling tests..."
 if [ -d bin ]
 then
