@@ -18,7 +18,7 @@ then
   if [ -d bin ]
   then
     echo "bin file exists"
-    if [ -s bin/com/danielvizzini/DateUtil.class]
+    if [ -s bin/com/danielvizzini/DateUtil.class ]
     then
       echo "DateUtil.class exists"
     else
