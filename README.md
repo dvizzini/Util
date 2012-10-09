@@ -1,6 +1,8 @@
 Util
 ====
 
+[![Build Status](https://travis-ci.org/dvizzini/Util.png)](https://travis-ci.org/dvizzini/Util)
+
 A kitchen sink to be used in multiple projects, kept in one place to avoid code drift.
 
 The project consists of one package: com.danielvizzini.util. With the exception of Knapsack and KnapsackItem, all classes therein only contain static methods and cannot be instantiated.
