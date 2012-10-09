@@ -8,6 +8,9 @@ if [ -z "$message" ]; then
   exit 1
 fi
 
+# run test file
+./test.sh
+
 echo "compiling jar file..."
 rm -rf Util.jar bin/*
 javac -d bin -sourcepath src src/com/danielvizzini/Util/*.java
