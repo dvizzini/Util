@@ -1,6 +1,9 @@
 # Java-specific
 *.class
 
+# Travis specific
+resources/*
+
 # Eclipse-specific
 .project
 .classpath
